@@ -1455,3 +1455,9 @@
 .folder-dots .dot.active {
   background: color-mix(in srgb, var(--c-home-label, #ffffff) 85%, transparent);
 }
+@media (max-width: 500px) and (hover: none) and (pointer: coarse) {
+  .phone-shell-wrap {
+    transform: none !important;
+    zoom: 1 !important;
+  }
+}
