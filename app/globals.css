@@ -43,12 +43,39 @@
   --font-size-lg: 17px;  --font-size-xl: 20px;
   --font-size-2xl: 24px; --font-size-3xl: 30px;
 }
-/* 手机适配修复 - 强制禁止左右滑动 */
-body {
-  overflow-x: hidden;
+/* ===== 新增：强制填满手机屏幕 ===== */
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;       /* 彻底禁止滚动 */
 }
-img, canvas, video, .phone-shell {
+
+#__next {
+  width: 100vw;
+  height: 100dvh;         /* 动态视口高度，适配手机底部栏 */
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* 垂直居中 */
+  align-items: center;    /* 水平居中 */
+}
+
+/* 让所有可能作为主容器的元素都撑满 */
+.phone-shell,
+.main-container,
+[class*="phone"],
+[class*="container"] {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100vw !important;
+  max-height: 100dvh !important;
+}
+
+/* 防止图片、视频、画布溢出 */
+img, canvas, video, iframe {
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
+  object-fit: contain;    /* 保持比例，不裁剪 */
 }
