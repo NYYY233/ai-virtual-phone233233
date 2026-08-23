@@ -43,3 +43,12 @@
   --font-size-lg: 17px;  --font-size-xl: 20px;
   --font-size-2xl: 24px; --font-size-3xl: 30px;
 }
+/* 手机适配修复 - 强制禁止左右滑动 */
+body {
+  overflow-x: hidden;
+  margin: 0;
+}
+img, canvas, video, .phone-shell {
+  max-width: 100%;
+  height: auto;
+}
